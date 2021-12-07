@@ -1,0 +1,17 @@
+version: "3.7"
+services:
+  api_p-card:
+    image: $API_IMAGE
+    container_name: library.service
+    command: bash -c 'tail -f /dev/null'
+    ports:
+      - 3002:$API_PORT
+    working_dir: $API_WORKING_DIR
+    volumes:
+      - $API_VOLUME
+    env_file:
+      - .env
+
+networks:
+  default:
+    name: $NETWORK
